@@ -1,19 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>STUDIO GHIBLI APP</h1>
+    <ul>
+      <film-list v-for="(film, index) in films" :key="index" :film="film"></film-list>
+    </ul>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FilmList from './components/FilmList.vue';
 
 export default {
   name: 'App',
+  data(){
+    return {
+      films: []
+    }
+  },
+
+
+  mounted(){
+    fetch('https://ghibliapi.herokuapp.com/films')
+    .then(res => res.json())
+    .then(films => this.films = films)
+  },
+
   components: {
-    HelloWorld
+    'film-list': FilmList
   }
+
+
 }
+
+
 </script>
 
 <style>
