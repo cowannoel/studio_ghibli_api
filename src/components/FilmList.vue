@@ -1,11 +1,23 @@
 <template lang="html">
-<li>{{ film.title }}</li>
+<div class="">
+    <li @click="handleClick">{{ film.title }}</li>
+  </select>
+</div>
+
 </template>
 
 <script>
+
+import { eventBus } from '../main.js'
+
 export default {
   name: 'film-list',
-  props: ['film']
+  props: ['film'],
+  methods: {
+    handleClick(){
+      eventBus.$emit('film-selected', this.film)
+    }
+  }
 }
 </script>
 
