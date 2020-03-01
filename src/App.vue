@@ -2,6 +2,8 @@
   <div id="app">
     <h1>STUDIO GHIBLI APP</h1>
     <div class="main cointainer">
+      <h3>My fav film list</h3>
+      <fav-film-list/>
 
       <!-- <form v-on:submit.prevent>
   <select v-on:change="handleSelect" v-model="selectedFilm">
@@ -20,13 +22,13 @@
 <script>
 import { eventBus } from './main.js';
 import FilmList from './components/FilmList.vue';
-import FilmDetail from './components/FilmDetail';
+import FilmDetail from './components/FilmDetail.vue';
+import FavFilmList from './components/FavFilms.vue';
 
 export default {
   name: 'App',
   data(){
     return {
-      "search": "",
       films: [],
       selectedFilm: null
     }
@@ -46,7 +48,8 @@ export default {
 
   components: {
     'film-list': FilmList,
-    'film-detail': FilmDetail
+    'film-detail': FilmDetail,
+    'fav-film-list': FavFilmList
   }
 
 }
