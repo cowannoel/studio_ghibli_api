@@ -1,6 +1,6 @@
 <template lang="html">
 
-<div v-if='film'>
+<div v-if='film' class="film-detail-flex">
   <h2>{{ film.title }}</h2>
     <h3>{{ film.director}}</h3>
       <h4>{{film.release_date}}</h4>
@@ -26,4 +26,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.country-detail-flex {
+  columns: 3;
+  flex: 1;
+}
+
+
 </style>

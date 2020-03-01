@@ -1,8 +1,8 @@
 <template lang="html">
-<div class="">
+<ul class="film-list-flex">
     <li @click="handleClick">{{ film.title }}</li>
   </select>
-</div>
+</ul>
 
 </template>
 
@@ -25,4 +25,10 @@ export default {
 li {
   list-style: none;
 }
+
+.film-list-flex {
+  flex: 1;
+  padding-left: 0px;
+}
+
 </style>

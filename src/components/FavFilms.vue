@@ -2,8 +2,8 @@
 
 <div v-if='film'>
   <h2><b>Favourite Film List</b></h2>
-    <h3>{{ film.title}}</h3>
-    <h4>{{ film.description}}</h4>
+      <h3>{{ film.title }}</h3>
+      <h4>{{ film.release_date }}</h4>
   </div>
 
 

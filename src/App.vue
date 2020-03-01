@@ -1,26 +1,16 @@
 <template>
   <div id="app">
-    <h1>STUDIO GHIBLI APP</h1>
-    <div class="main cointainer">
-
-      <!-- <form v-on:submit.prevent>
-  <select v-on:change="handleSelect" v-model="selectedFilm">
-    <option v-for="film in films" :film="film">{{film.title}}</option>
-  </select>
-</form> -->
-
-      <ul>
-        <film-list v-for="(film, index) in films" :key="index" :film="film"></film-list>
-      </ul>
-      <film-detail :film='selectedFilm'/>
-        <div class="flex=wrapper">
-          <div class="right">
-            <fav-film-list :film='favFilm'/>
-          </div>
-
+    <div class="title">
+      <h1>STUDIO GHIBLI APP</h1>
     </div>
+    <div class="flex-cointainer">
+      <film-list v-for="(film, index) in films" :key="index" :film="film"></film-list>
+      <film-detail :film='selectedFilm'/>
+      <fav-film-list :film='favFilm'/>
     </div>
   </div>
+</div>
+</div>
 </template>
 
 <script>
@@ -76,31 +66,33 @@ export default {
   margin-top: 60px;
 }
 
-.main-container {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin: 0 auto;
+.flex-container {
+    justify-content: space-between;
+    display: inline-flex;
 }
 
 h1 {
   font-size: 3em;
-  color: #01c1e6;
+  color: black;
 }
 
-.list {
-  width: 100%;
-  display: flex;
+ul {
+  list-style: none;
+  width: 20em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.flex-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
+.title {
 
-.right {
-  width: 45%;
-  height: fit-content;
+  color: #dda0dd;
+  border-style: solid;
+  border-color: black;
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 </style>
