@@ -2,8 +2,6 @@
   <div id="app">
     <h1>STUDIO GHIBLI APP</h1>
     <div class="main cointainer">
-      <h3>My fav film list</h3>
-      <fav-film-list/>
 
       <!-- <form v-on:submit.prevent>
   <select v-on:change="handleSelect" v-model="selectedFilm">
@@ -15,6 +13,12 @@
         <film-list v-for="(film, index) in films" :key="index" :film="film"></film-list>
       </ul>
       <film-detail :film='selectedFilm'/>
+        <div class="flex=wrapper">
+          <div class="right">
+            <fav-film-list :film='favFilm'/>
+          </div>
+
+    </div>
     </div>
   </div>
 </template>
@@ -30,7 +34,9 @@ export default {
   data(){
     return {
       films: [],
-      selectedFilm: null
+      selectedFilm: null,
+      favFilm: null
+
     }
   },
 
@@ -42,6 +48,9 @@ export default {
 
     eventBus.$on('film-selected', (film) => {
       this.selectedFilm = film
+    })
+    eventBus.$on('fav-film', (film) =>{
+      this.favFilm = film
     })
 
   },
@@ -76,13 +85,22 @@ export default {
 
 h1 {
   font-size: 3em;
-  padding-bottom: 0.5em;
   color: #01c1e6;
 }
 
 .list {
   width: 100%;
   display: flex;
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right {
+  width: 45%;
+  height: fit-content;
 }
 
 </style>

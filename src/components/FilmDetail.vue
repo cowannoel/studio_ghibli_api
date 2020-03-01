@@ -4,7 +4,7 @@
   <h2>{{ film.title }}</h2>
     <h3>{{ film.director}}</h3>
       <h4>{{film.release_date}}</h4>
-      <button type="button" name="favorite" v-on:click="handleFavClick">Add to Favourite Films</button>
+      <button v-on:click="handleFavClick" type="button" name="favourites">Add to Favourites</button>
 </div>
 
 </template>
@@ -18,10 +18,11 @@ export default {
   props: ['film'],
   methods: {
     handleFavClick(){
-      console.log('film', this.film);
+      eventBus.$emit('fav-film', this.film);
+    }
     }
   }
-}
+
 </script>
 
 <style lang="css" scoped>
